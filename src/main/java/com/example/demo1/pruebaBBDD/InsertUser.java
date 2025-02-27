@@ -29,6 +29,8 @@ public class InsertUser {
                     System.out.println("Filas insertadas: " +
                             filasAfectadas);
                 }
+
+
             } catch(SQLException e){
                 e.printStackTrace();
             }

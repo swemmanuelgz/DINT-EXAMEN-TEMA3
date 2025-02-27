@@ -3,6 +3,7 @@ package com.example.demo1.controller;
 import com.example.demo1.UsuarioDAO;
 import com.example.demo1.UsuarioDAOImpl;
 import com.example.demo1.modelo.Modelo;
+import com.example.demo1.pruebasReports.ReportGenerating;
 import com.example.demo1.utils.Constantes;
 import com.example.demo1.utils.PantallaUtils;
 import javafx.collections.FXCollections;
@@ -77,6 +78,7 @@ public class CaloriasController {
 
     private Scene scene;
     private UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
+    private ReportGenerating reportGenerating = new ReportGenerating();
 
 
     public CaloriasController showEstaPantalla(Stage stage) throws IOException {
@@ -99,12 +101,22 @@ public class CaloriasController {
         celdaCalorias.setCellValueFactory(new PropertyValueFactory<>("calorias"));
             //añadimos los valores al combobox de actividad
         cbActividad.getItems().addAll("Caminar", "Correr", "Nadar");
+
+        btnInforme.setOnAction(event -> {
+            try(Connection connection = DriverManager.getConnection(Constantes.RUTA_BBDD_CALORIAS.getDescripcion())) {
+                reportGenerating.generateReport(connection);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
         cargarDatos();
     }
 
     private void cargarDatos() {
         List<Modelo> usuarios = usuarioDAO.selectDatos();
+        //hacemos el observable
         ObservableList<Modelo> usuariosObservable = FXCollections.observableArrayList(usuarios);
+        //añadimos cada usuario a la tabla
         tablaDatos.setItems(usuariosObservable);
     }
 
@@ -136,6 +148,7 @@ public class CaloriasController {
         alert.setTitle("Calorias");
         alert.setHeaderText("Calorias quemadas");
         alert.setContentText("Has quemado " + calorias + " calorias");
+        alert.showAndWait();
         //guardar en la base de datos
         usuarioDAO.insertarDatos(new Modelo(nombreUsuario.getText(), actividad, String.valueOf(calorias)));
 

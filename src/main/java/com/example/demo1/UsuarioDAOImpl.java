@@ -21,6 +21,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             pstmt.setString(1, usuario.getNombre());
             pstmt.setString(2, usuario.getActividad());
             pstmt.setString(3, usuario.getCalorias());
+            System.out.println(usuario.getNombre());
             pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

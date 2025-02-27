@@ -8,8 +8,16 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
+
 public class Test {
+    //no me deja importar el JUNIT no se porque , si quieres que te compile deja las lineas comentadas
+   // @BeforeEach
+    public void setUp() {
+        System.out.println("empezando");
+    }
+
     //Conexion
+    //@Test
     public static void testConexion() {
         try (Connection conn = DriverManager.getConnection(Constantes.RUTA_BBDD_CALORIAS.getDescripcion())) {
             if (conn != null) {
@@ -22,13 +30,16 @@ public class Test {
         }
     }
     //inserciomn
+    //@Test
     public static void testInsertarDatos() {
         UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
         Modelo usuario = new Modelo("Juan", "Correr", "500");
         usuarioDAO.insertarDatos(usuario);
         System.out.println("Datos insertados correctamente.");
+        //las conexiones se cierras automaticamente al esta metidas en try catch
     }
     //select
+   // @Test
     public static void testSelectDatos() {
         UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
         List<Modelo> usuarios = usuarioDAO.selectDatos();
@@ -36,6 +47,10 @@ public class Test {
         for (Modelo u : usuarios) {
             System.out.println("Nombre: " + u.getNombre() + " Actividad: " + u.getActividad() + " Calorias: " + u.getCalorias());
         }
+    }
+   // @AfterEach
+    public void acabarTest() {
+        System.out.println("test acabado");
     }
 
     public static void main(String[] args) {
