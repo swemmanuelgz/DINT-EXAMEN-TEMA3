@@ -34,6 +34,15 @@ public class Test {
     public static void testInsertarDatos() {
         UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
         Modelo usuario = new Modelo("Juan", "Correr", "500");
+        // Chequeamos que no existe el usuario
+        List<Modelo> usuarios = usuarioDAO.selectDatos();
+        for (Modelo u : usuarios) {
+            if (u.getNombre().equals(usuario.getNombre())) {
+                System.out.println("El usuario ya existe en la base de datos.");
+                return;
+            }
+        }
+
         usuarioDAO.insertarDatos(usuario);
         System.out.println("Datos insertados correctamente.");
         //las conexiones se cierras automaticamente al esta metidas en try catch

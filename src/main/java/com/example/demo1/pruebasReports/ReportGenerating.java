@@ -90,14 +90,5 @@ public class ReportGenerating {
         }
     }
 
-    public static void main(String[] args) {
-        // Conectar a la base de datos y generar el reporte
-        Connection conn = connect();
-        if (conn != null) {
-            ReportGenerating generator = new ReportGenerating();
-            generator.generateReport(conn);
-        } else {
-            System.out.println("Error al conectar a la base de datos.");
-        }
-    }
+
 }

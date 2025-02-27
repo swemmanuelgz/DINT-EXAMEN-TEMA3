@@ -82,15 +82,5 @@ public class ReportGenerating_Filtro {
         }
     }
 
-    public static void main(String[] args) {
-        // Conectar a la base de datos y generar el reporte para un nombre específico
-        String nombre = "maria";  // Cambia el valor aquí para filtrar por diferentes nombres
-        Connection conn = connect();
-        if (conn != null) {
-            ReportGenerating_Filtro generator = new ReportGenerating_Filtro();
-            generator.generateReport(conn, nombre);
-        } else {
-            System.out.println("Error al conectar a la base de datos.");
-        }
-    }
+
 }

@@ -104,6 +104,7 @@ public class CaloriasController {
 
         btnInforme.setOnAction(event -> {
             try(Connection connection = DriverManager.getConnection(Constantes.RUTA_BBDD_CALORIAS.getDescripcion())) {
+                //le pasamos nuestra conexion a la clase que genera el report
                 reportGenerating.generateReport(connection);
             } catch (Exception e) {
                 e.printStackTrace();
