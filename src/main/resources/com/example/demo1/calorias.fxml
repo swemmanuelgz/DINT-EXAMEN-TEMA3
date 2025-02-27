@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.controller.CaloriasController">
+    <children>
+        <VBox layoutX="49.0" layoutY="23.0" prefHeight="333.0" prefWidth="493.0">
+            <children>
+                <Label fx:id="lblUsuario" text="Nombre de usuario:" />
+                <TextField id="nombreUsuario" fx:id="nombreUsuario" />
+                <Label fx:id="lblActividad" text="Actividad:" />
+                <ComboBox id="cbActividad" fx:id="cbActividad" prefWidth="150.0" />
+                <Label fx:id="lblDuracion" text="Duración:" />
+                <TextField id="duracion" fx:id="duracion" />
+                <Label fx:id="lblPeso" text="Peso" />
+                <Label fx:id="lblFecha" text="Fecha:" />
+                <DatePicker id="fecha" fx:id="fecha" />
+                <Button id="btnCalcularCalorias" fx:id="btnCalcularCalorias" mnemonicParsing="false" onAction="#handleCalcularCalorias" text="Calcular calorías" />
+                <TableView id="tablaDatos" fx:id="tablaDatos" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                        <TableColumn id="celdaNombre" fx:id="celdaNombre" prefWidth="75.0" text="nombre" />
+                        <TableColumn id="celdaActividad" fx:id="celdaActividad" prefWidth="75.0" text="actividad" />
+                        <TableColumn id="celdaCalorias" fx:id="celdaCalorias" prefWidth="75.0" text="Calorias" />
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+      <Button fx:id="btnInforme" layoutX="267.0" layoutY="356.0" mnemonicParsing="false" text="Informe" />
+    </children>
+</AnchorPane>

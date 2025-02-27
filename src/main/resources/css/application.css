@@ -1,0 +1,55 @@
+#nombreUsuario {
+    -fx-background-color: lightblue;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+#cbActividad {
+    -fx-background-color: lightgreen;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+#duracion {
+    -fx-background-color: lightyellow;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+#peso {
+    -fx-background-color: lightcoral;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+#fecha {
+    -fx-background-color: lightgray;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+#btnCalcularCalorias {
+    -fx-background-color: lightseagreen;
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+}
+
+#tablaDatos {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+}
+
+#celdaNombre, #celdaActividad, #celdaCalorias {
+    -fx-alignment: CENTER;
+    -fx-font-size: 14px;
+}
+/*ahora le pondre efecto hover a los botones y campos de texto*/
+#btnCalcularCalorias:hover {
+    -fx-background-color: lightblue;
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+}
+
